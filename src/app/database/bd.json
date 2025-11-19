@@ -2,7 +2,7 @@
   "recettes": [
     {
       "nom": "Couscous au poisson",
-      "photo": "assets/images/couscous-poisson.jpg",
+      "photo": "https://lepidor.com.tn/wp-content/uploads/Couscous-au-poisson.jpg",
       "description": "Un délicieux couscous traditionnel de la région de Sfax, préparé avec du poisson frais et des légumes de saison.",
       "ingredients": [
         "500g de semoule fine",
@@ -39,7 +39,7 @@
     {
       "id": "recette-2",
       "nom": "Brik à l'œuf",
-      "photo": "assets/images/brik-oeuf.jpg",
+      "photo": "https://cdn-tam.ouest-france.fr/media/cache/downscale_1200/assets/featured/brick-a-loeuf-brick-a-la-tunisienne-.jpeg",
       "description": "Feuille de brick croustillante garnie d'œuf, de thon et de persil, frite à la perfection.",
       "ingredients": [
         "8 feuilles de brick",
@@ -67,7 +67,7 @@
     {
       "id": "recette-3",
       "nom": "Lablabi",
-      "photo": "assets/images/lablabi.jpg",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa5Bz0HZ1pOFDVwZ4R3LpwWcWW8s7es3MzPA&s",
       "description": "Soupe réconfortante à base de pois chiches, parfumée au cumin et à l'ail, servie avec du pain rassis.",
       "ingredients": [
         "500g de pois chiches trempés",
@@ -89,7 +89,7 @@
     {
       "id": "recette-4",
       "nom": "Méchouia",
-      "photo": "assets/images/mechouia.jpg",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS81WAgL4tnToVhhWA1PuzoLDxjoKnSnctLQ&s",
       "description": "Salade de légumes grillés, épluchés et coupés en dés, assaisonnée d'huile d'olive et de cumin.",
       "ingredients": [
         "4 poivrons verts et rouges",
@@ -118,7 +118,7 @@
     {
       "id": "recette-5",
       "nom": "Tajine tunisien",
-      "photo": "assets/images/tajine-tunisien.jpg",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGJOpadoUtF-5JVa5141aQ31BdsZTcHGicVA&s",
       "description": "Tajine à la tunisienne, différent du marocain, avec une texture plus proche d'une quiche, garni de viande, fromage et légumes.",
       "ingredients": [
         "500g de viande hachée",

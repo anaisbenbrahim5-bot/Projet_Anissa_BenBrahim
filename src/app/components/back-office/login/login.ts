@@ -22,13 +22,19 @@ export class Login {
   get  Username(){
     return this.loginForm.get('username');
   }
+  get Password(){
+    return this.loginForm.get('password');
+  }
   public requiredUser(){
     return this.Username?.errors?.['required'] && this.Username.dirty;
+  }
+  public requiredPassword(){
+    return this.Password?.errors?.['required'] && this.Password.dirty;
   }
   onSubmit(){
     this.authService.getUser().subscribe(
       data=>{
-        this.user=data[0];
+        this.user=data;
         if(this.user?.username==this.loginForm.get('username')?.value && 
     this.user?.password==this.loginForm.get('password')?.value){
       this.router.navigate(['/admin/dashboard']);

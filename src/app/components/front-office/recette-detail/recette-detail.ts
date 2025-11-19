@@ -1,13 +1,15 @@
+import { DatePipe, DecimalPipe, LowerCasePipe, TitleCasePipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Commentaire } from '../../../models/commentaire';
 import { RecetteTunisienne } from '../../../models/recette-tunisienne';
 import { RecetteService } from '../../../services/recette-service';
+import { DurationPipe } from '../pipes/duration-pipe';
 
 @Component({
   selector: 'app-recette-detail',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,DatePipe,TitleCasePipe,LowerCasePipe,DecimalPipe,DurationPipe],
   templateUrl: './recette-detail.html',
   styleUrl: './recette-detail.css',
 })
@@ -25,9 +27,16 @@ export class RecetteDetail implements OnInit {
       message: ['', [Validators.required, Validators.minLength(5)]],
       date:[new Date()]
     });
-    this.recetteId=this.route.snapshot.paramMap.get('id') || '';
+    this.recetteId=this.route.snapshot.params["id"]  ;
     this.recetteService.getRecetteById(this.recetteId).subscribe(
-      data=>this.recette=data
+      data=>{
+        if (data) {
+          this.recette = data;
+        } else {
+          console.error('Recette non trouvée');
+          this.router.navigate(['/recettes']); 
+        }
+      } 
     )
   }
   OnSubmitComment() {

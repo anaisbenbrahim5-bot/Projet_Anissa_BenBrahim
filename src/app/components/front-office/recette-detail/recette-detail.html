@@ -1,7 +1,5 @@
 <div class="container mt-4">
   <button class="btn btn-secondary mb-4" (click)="router.navigate(['/recettes'])">← Retour</button>
-
-  @if(recette){
   <div class="card mb-4">
     <div class="card-body">
       <div class="row">
@@ -9,18 +7,22 @@
           <img [src]="recette.photo" [alt]="recette.nom" class="img-fluid rounded" />
         </div>
         <div class="col-md-8">
-          <h1 class="card-title">{{ recette.nom }}</h1>
+          <h1 class="card-title">{{ recette.nom | titlecase }}</h1>
           <div class="mb-2">
             <strong>Difficulté:</strong>
-            <span class="badge bg-warning ms-2">{{ recette.difficulte }}</span>
+            <span class="badge bg-warning ms-2">{{ recette.difficulte | lowercase }}</span>
           </div>
           <div class="mb-2">
             <strong>Temps:</strong>
-            <span class="badge bg-info ms-2">{{ recette.tempsPreparation }} min</span>
+            <span class="badge bg-info ms-2">{{ recette.tempsPreparation | duration }} </span>
           </div>
           <div class="mb-2">
             <strong>Portions:</strong>
-            <span class="badge bg-success ms-2">{{ recette.nbPortions }} pers.</span>
+            <span class="badge bg-success ms-2">{{ recette.nbPortions | number }} pers.</span>
+          </div>
+          <div class="mb-2">
+            <strong>Date d'ajout:</strong>
+            <span class="badge bg-secondary ms-2">{{ recette.dateAjout | date : 'fullDate' }}</span>
           </div>
         </div>
       </div>
@@ -37,19 +39,19 @@
       <h2 class="h5">Ingrédients</h2>
       <ul class="list-group">
         @for (ingredient of recette.ingredients; track ingredient) {
-        <li class="list-group-item">{{ ingredient }}</li>
+        <li class="list-group-item">{{ ingredient | titlecase }}</li>
         }
       </ul>
     </div>
   </div>
   <div class="card mb-4">
     <div class="card-body">
-      <h2 class="h5">Commentaires ({{ recette.comments.length }})</h2>
+      <h2 class="h5">Commentaires ({{ recette.comments.length | number }})</h2>
 
       @for (comment of recette.comments; track comment) {
       <div class="card mb-2">
         <div class="card-body">
-          <strong>{{ comment.nom }}:</strong>
+          <strong>{{ comment.nom | titlecase }}:</strong>
           <p class="mb-0">{{ comment.message }}</p>
         </div>
       </div>
@@ -79,5 +81,4 @@
       </form>
     </div>
   </div>
-  }
 </div>

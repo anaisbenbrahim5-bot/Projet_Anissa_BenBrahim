@@ -19,6 +19,9 @@
     <label for="password" class="form-label">Donner Mot de Passe</label>
     <input type="password" formControlName="password" class="form-control" />
   </div>
+  @if (requiredPassword()) {
+  <div class="alert alert-danger py-2">Champ Obligatoire</div>
+  }
 
   <button class="btn btn-primary w-100" [disabled]="loginForm.invalid">Connexion</button>
 </form>

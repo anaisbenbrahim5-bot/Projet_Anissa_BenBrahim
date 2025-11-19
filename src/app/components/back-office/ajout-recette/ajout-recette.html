@@ -9,27 +9,39 @@
     <label for="nom" class="form-label">Nom de la recette</label>
     <input type="text" class="form-control" formControlName="nom" />
   </div>
+  @if (recetteForm.get('nom')?.errors?.['minlength']) {
+  <div class="alert alert-danger">Le nom doit avoir au moins 3 caractères</div>
+  }
 
   <div class="mb-3">
     <label for="photo" class="form-label">URL de la photo</label>
     <input type="text" class="form-control" formControlName="photo" />
   </div>
+  @if (recetteForm.get('photo')?.invalid && recetteForm.get('photo')?.touched) {
+  <div class="alert alert-danger">Champ obligatoire</div>
+  }
 
   <div class="mb-3">
     <label for="description" class="form-label">Description</label>
     <textarea class="form-control" formControlName="description" rows="3"></textarea>
   </div>
-
+  @if (recetteForm.get('description')?.errors?.['minlength']) {
+  <div class="alert alert-danger">La description doit avoir au moins 10 caractères</div>
+  }
   <div class="mb-3">
     <label for="tempsPreparation" class="form-label">Temps de préparation (minutes)</label>
     <input type="number" class="form-control" formControlName="tempsPreparation" />
   </div>
-
+  @if (recetteForm.get('tempsPreparation')?.errors?.['min']) {
+  <div class="alert alert-danger">Le temps doit être d'au moins 1 minute</div>
+  }
   <div class="mb-3">
     <label for="nbPortions" class="form-label">Nombre de portions</label>
     <input type="number" class="form-control" formControlName="nbPortions" />
   </div>
-
+  @if (recetteForm.get('nbPortions')?.errors?.['min']) {
+  <div class="alert alert-danger">Le nombre de portions doit être d'au moins 1</div>
+  }
   <div class="mb-3">
     <label for="difficulte" class="form-label">Difficulté *</label>
     <select class="form-select" formControlName="difficulte">
