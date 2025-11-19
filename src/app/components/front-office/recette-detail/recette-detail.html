@@ -1,0 +1,83 @@
+<div class="container mt-4">
+  <button class="btn btn-secondary mb-4" (click)="router.navigate(['/recettes'])">← Retour</button>
+
+  @if(recette){
+  <div class="card mb-4">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <img [src]="recette.photo" [alt]="recette.nom" class="img-fluid rounded" />
+        </div>
+        <div class="col-md-8">
+          <h1 class="card-title">{{ recette.nom }}</h1>
+          <div class="mb-2">
+            <strong>Difficulté:</strong>
+            <span class="badge bg-warning ms-2">{{ recette.difficulte }}</span>
+          </div>
+          <div class="mb-2">
+            <strong>Temps:</strong>
+            <span class="badge bg-info ms-2">{{ recette.tempsPreparation }} min</span>
+          </div>
+          <div class="mb-2">
+            <strong>Portions:</strong>
+            <span class="badge bg-success ms-2">{{ recette.nbPortions }} pers.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h2 class="h5">Description</h2>
+      <p class="card-text">{{ recette.description }}</p>
+    </div>
+  </div>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h2 class="h5">Ingrédients</h2>
+      <ul class="list-group">
+        @for (ingredient of recette.ingredients; track ingredient) {
+        <li class="list-group-item">{{ ingredient }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h2 class="h5">Commentaires ({{ recette.comments.length }})</h2>
+
+      @for (comment of recette.comments; track comment) {
+      <div class="card mb-2">
+        <div class="card-body">
+          <strong>{{ comment.nom }}:</strong>
+          <p class="mb-0">{{ comment.message }}</p>
+        </div>
+      </div>
+      } @if (recette.comments.length === 0) {
+      <p class="text-muted">Aucun commentaire</p>
+      }
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h2 class="h5">Ajouter un commentaire</h2>
+      <form [formGroup]="commentForm" (ngSubmit)="OnSubmitComment()">
+        <div class="mb-3">
+          <input type="text" class="form-control" formControlName="nom" placeholder="Votre nom" />
+        </div>
+        <div class="mb-3">
+          <textarea
+            class="form-control"
+            formControlName="message"
+            placeholder="Votre commentaire"
+            rows="3"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="commentForm.invalid">
+          Ajouter
+        </button>
+      </form>
+    </div>
+  </div>
+  }
+</div>

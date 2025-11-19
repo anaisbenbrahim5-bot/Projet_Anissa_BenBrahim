@@ -1,0 +1,149 @@
+{
+  "recettes": [
+    {
+      "nom": "Couscous au poisson",
+      "photo": "assets/images/couscous-poisson.jpg",
+      "description": "Un délicieux couscous traditionnel de la région de Sfax, préparé avec du poisson frais et des légumes de saison.",
+      "ingredients": [
+        "500g de semoule fine",
+        "1 kg de poisson (dorade, loup de mer)",
+        "4 carottes",
+        "4 navets",
+        "2 oignons",
+        "2 courgettes",
+        "2 poivrons",
+        "3 tomates",
+        "harissa",
+        "huile d'olive",
+        "épices tunisiennes"
+      ],
+      "tempsPreparation": 120,
+      "difficulte": "Moyenne",
+      "estTraditionnelle": true,
+      "dateAjout": "2024-01-15",
+      "nbPortions": 6,
+      "comments": [
+        {
+          "nom": "Fatima",
+          "message": "Recette authentique et délicieuse !",
+          "date": "2024-02-10"
+        },
+        {
+          "nom": "Mohamed",
+          "message": "Parfait pour les occasions spéciales",
+          "date": "2024-02-15"
+        }
+      ],
+      "id": "recette-1"
+    },
+    {
+      "id": "recette-2",
+      "nom": "Brik à l'œuf",
+      "photo": "assets/images/brik-oeuf.jpg",
+      "description": "Feuille de brick croustillante garnie d'œuf, de thon et de persil, frite à la perfection.",
+      "ingredients": [
+        "8 feuilles de brick",
+        "4 œufs",
+        "200g de thon en boîte",
+        "1 oignon haché",
+        "Persil frais",
+        "Câpres",
+        "Huile pour friture",
+        "Sel et poivre"
+      ],
+      "tempsPreparation": 30,
+      "difficulte": "Facile",
+      "estTraditionnelle": true,
+      "dateAjout": "2024-01-20",
+      "nbPortions": 4,
+      "comments": [
+        {
+          "nom": "Salma",
+          "message": "Idéal pour un apéritif tunisien !",
+          "date": "2024-02-18"
+        }
+      ]
+    },
+    {
+      "id": "recette-3",
+      "nom": "Lablabi",
+      "photo": "assets/images/lablabi.jpg",
+      "description": "Soupe réconfortante à base de pois chiches, parfumée au cumin et à l'ail, servie avec du pain rassis.",
+      "ingredients": [
+        "500g de pois chiches trempés",
+        "6 gousses d'ail",
+        "2 cuillères à soupe de cumin",
+        "1 cuillère à soupe de harissa",
+        "8 tranches de pain rassis",
+        "Huile d'olive",
+        "Citron",
+        "Œufs durs"
+      ],
+      "tempsPreparation": 90,
+      "difficulte": "Facile",
+      "estTraditionnelle": true,
+      "dateAjout": "2024-02-01",
+      "nbPortions": 4,
+      "comments": []
+    },
+    {
+      "id": "recette-4",
+      "nom": "Méchouia",
+      "photo": "assets/images/mechouia.jpg",
+      "description": "Salade de légumes grillés, épluchés et coupés en dés, assaisonnée d'huile d'olive et de cumin.",
+      "ingredients": [
+        "4 poivrons verts et rouges",
+        "4 tomates",
+        "2 oignons",
+        "2 gousses d'ail",
+        "3 cuillères à soupe d'huile d'olive",
+        "1 cuillère à café de cumin",
+        "1 cuillère à café de coriandre moulue",
+        "Sel",
+        "Thon en boîte (optionnel)"
+      ],
+      "tempsPreparation": 45,
+      "difficulte": "Moyenne",
+      "estTraditionnelle": true,
+      "dateAjout": "2024-02-05",
+      "nbPortions": 6,
+      "comments": [
+        {
+          "nom": "Karim",
+          "message": "Parfait en entrée l'été",
+          "date": "2024-02-20"
+        }
+      ]
+    },
+    {
+      "id": "recette-5",
+      "nom": "Tajine tunisien",
+      "photo": "assets/images/tajine-tunisien.jpg",
+      "description": "Tajine à la tunisienne, différent du marocain, avec une texture plus proche d'une quiche, garni de viande, fromage et légumes.",
+      "ingredients": [
+        "500g de viande hachée",
+        "200g de fromage râpé",
+        "4 œufs",
+        "1 oignon",
+        "Persil",
+        "Lait",
+        "Farine",
+        "Levure chimique",
+        "Épices tunisiennes"
+      ],
+      "tempsPreparation": 75,
+      "difficulte": "Difficile",
+      "estTraditionnelle": true,
+      "dateAjout": "2024-02-10",
+      "nbPortions": 8,
+      "comments": []
+    }
+  ],
+  "user": [
+    {
+      "username": "admin",
+      "password": "admin123",
+      "id": "1"
+    }
+  ]
+}

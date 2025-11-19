@@ -1,0 +1,41 @@
+import { Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from '../../../models/user';
+import { AuthService } from '../../../services/auth-service';
+
+@Component({
+  selector: 'app-login',
+  imports: [ReactiveFormsModule],
+  templateUrl: './login.html',
+  styleUrl: './login.css',
+})
+export class Login {
+  private fb=inject(FormBuilder);
+  authService:AuthService=inject(AuthService);
+  private router=inject(Router);
+  loginForm = this.fb.group({
+    username: ['', [Validators.required, Validators.minLength(3)]],
+    password: ['', [Validators.required, Validators.minLength(3)]]
+  });
+  user:User |null=null;
+  get  Username(){
+    return this.loginForm.get('username');
+  }
+  public requiredUser(){
+    return this.Username?.errors?.['required'] && this.Username.dirty;
+  }
+  onSubmit(){
+    this.authService.getUser().subscribe(
+      data=>{
+        this.user=data[0];
+        if(this.user?.username==this.loginForm.get('username')?.value && 
+    this.user?.password==this.loginForm.get('password')?.value){
+      this.router.navigate(['/admin/dashboard']);
+    }
+    else{
+      alert('mot de passe ou utilisateur invalide');
+    }
+      })
+  }
+}

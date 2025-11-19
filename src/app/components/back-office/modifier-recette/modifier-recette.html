@@ -1,0 +1,67 @@
+<h1 class="mb-4 text-center">Modifier une recette</h1>
+
+<div class="mb-3">
+  <a routerLink="/admin/dashboard" class="btn btn-secondary">Retour</a>
+</div>
+
+<form [formGroup]="recetteForm" (ngSubmit)="OnSubmit()" class="p-4 shadow rounded bg-light">
+  <div class="mb-3">
+    <label for="nom" class="form-label">Nom de la recette</label>
+    <input type="text" class="form-control" formControlName="nom" />
+  </div>
+
+  <div class="mb-3">
+    <label for="photo" class="form-label">URL de la photo</label>
+    <input type="text" class="form-control" formControlName="photo" />
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea class="form-control" formControlName="description" rows="3"></textarea>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label class="form-label">Temps de préparation (minutes)</label>
+      <input type="number" class="form-control" formControlName="tempsPreparation" />
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label class="form-label">Nombre de portions</label>
+      <input type="number" class="form-control" formControlName="nbPortions" />
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Difficulté *</label>
+    <select class="form-select" formControlName="difficulte">
+      <option value="Facile">Facile</option>
+      <option value="Moyenne">Moyenne</option>
+      <option value="Difficile">Difficile</option>
+    </select>
+  </div>
+
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" formControlName="estTraditionnelle" id="trad" />
+    <label class="form-check-label" for="trad"> Recette traditionnelle tunisienne </label>
+  </div>
+
+  <div formArrayName="ingredients" class="mb-4">
+    <label class="form-label fw-bold">Ingrédients</label>
+
+    @for (ingredient of ingredients.controls; track $index; let i = $index) {
+    <div class="input-group mb-2">
+      <span class="input-group-text">#{{ i + 1 }}</span>
+      <input type="text" class="form-control" [formControlName]="i" />
+    </div>
+    }
+
+    <button type="button" class="btn btn-outline-primary mt-2" (click)="addIngredient()">
+      Ajouter un ingrédient
+    </button>
+  </div>
+
+  <button type="submit" class="btn btn-success w-100" [disabled]="recetteForm.invalid">
+    Enregistrer Modification
+  </button>
+</form>
