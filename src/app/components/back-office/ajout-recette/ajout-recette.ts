@@ -1,7 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import {  RouterLink } from '@angular/router';
+import {  Router, RouterLink } from '@angular/router';
 import { RecetteTunisienne } from '../../../models/recette-tunisienne';
+import { AuthService } from '../../../services/auth-service';
 import { RecetteService } from '../../../services/recette-service';
 
 @Component({
@@ -13,8 +14,10 @@ import { RecetteService } from '../../../services/recette-service';
 export class AjoutRecette implements OnInit {
   recetteService:RecetteService=inject(RecetteService);
   private fb=inject(FormBuilder);
-  recetteForm!:FormGroup
-  ngOnInit(): void {
+  recetteForm!:FormGroup;
+  authService:AuthService=inject(AuthService);
+  router:Router=inject(Router);
+    ngOnInit(): void {
     this.recetteForm=this.fb.nonNullable.group({
       nom: ['Nouvelle Recette', [Validators.required, Validators.minLength(3)]],
       photo: ['https://example.com/photo.jpg', [Validators.required]],
@@ -41,5 +44,9 @@ export class AjoutRecette implements OnInit {
         alert("recette enregistre");
       }
     )
+  }
+  OnDisconnect(){
+    this.authService.logout();
+      this.router.navigate(['admin/login']);
   }
 }

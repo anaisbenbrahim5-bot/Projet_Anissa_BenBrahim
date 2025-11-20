@@ -1,5 +1,6 @@
 <div class="container mt-4">
   <button class="btn btn-secondary mb-4" (click)="router.navigate(['/recettes'])">← Retour</button>
+  @if(recette){
   <div class="card mb-4">
     <div class="card-body">
       <div class="row">
@@ -33,6 +34,12 @@
       <h2 class="h5">Description</h2>
       <p class="card-text">{{ recette.description }}</p>
     </div>
+    <p class="mb-3">
+      <strong>Traditionnelle :</strong>
+      <span [class]="recette.estTraditionnelle ? 'text-success fw-bold' : 'text-warning fw-bold'">
+        {{ recette.estTraditionnelle ? 'Oui' : 'Non' }}
+      </span>
+    </p>
   </div>
   <div class="card mb-4">
     <div class="card-body">
@@ -81,4 +88,5 @@
       </form>
     </div>
   </div>
+  }
 </div>

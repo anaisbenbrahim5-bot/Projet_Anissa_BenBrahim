@@ -2,7 +2,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RecetteTunisienne } from '../../../models/recette-tunisienne';
 import { RecetteService } from '../../../services/recette-service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../services/auth-service';
 
 @Component({
   selector: 'app-modifier-recette',
@@ -11,11 +12,11 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   styleUrl: './modifier-recette.css',
 })
 export class ModifierRecette implements OnInit {
-  
+  authService:AuthService=inject(AuthService);
   recetteService = inject(RecetteService);
   fb = inject(FormBuilder);
-  route = inject(ActivatedRoute);
-
+  routeActive = inject(ActivatedRoute);
+  router:Router=inject(Router);
   recetteId: string = '';
   recette: RecetteTunisienne | null = null;
   recetteForm!:FormGroup;
@@ -32,7 +33,7 @@ export class ModifierRecette implements OnInit {
       nbPortions: [0, [Validators.required, Validators.min(1)]],
       comments: this.fb.nonNullable.array([])
     });
-    this.recetteId = this.route.snapshot.paramMap.get('id') || '';
+    this.recetteId = this.routeActive.snapshot.paramMap.get('id') || '';
 
     this.recetteService.getRecetteById(this.recetteId).subscribe(
       (data) => {
@@ -81,5 +82,9 @@ export class ModifierRecette implements OnInit {
      ()=>alert('recette est modifier')
     )
     
+  }
+  OnDisconnect(){
+    this.authService.logout();
+      this.router.navigate(['admin/login']);
   }
 }

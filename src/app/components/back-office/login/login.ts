@@ -35,11 +35,14 @@ export class Login {
     this.authService.getUser().subscribe(
       data=>{
         this.user=data;
-        if(this.user?.username==this.loginForm.get('username')?.value && 
-    this.user?.password==this.loginForm.get('password')?.value){
+        const {username,password}=this.loginForm.value;
+        let connect=this.user?.username==username && this.user?.password==password;
+        if(connect){
+        localStorage.setItem('state','connected');
       this.router.navigate(['/admin/dashboard']);
     }
     else{
+      localStorage.setItem('state','disconnected')
       alert('mot de passe ou utilisateur invalide');
     }
       })

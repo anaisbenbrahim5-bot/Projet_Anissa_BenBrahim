@@ -1,8 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { RecetteTunisienne } from '../../../models/recette-tunisienne';
 import { RecetteService } from '../../../services/recette-service';
+import { AuthService } from '../../../services/auth-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,8 @@ export class Dashboard implements OnInit{
   recettes:RecetteTunisienne[]=[];
   filteredRecettes: RecetteTunisienne[] = [];
   recetteService:RecetteService=inject(RecetteService);
-  
+  authService:AuthService=inject(AuthService);
+  router:Router=inject(Router);
   searchNom: string = '';
 
   ngOnInit(): void {
@@ -32,11 +34,6 @@ export class Dashboard implements OnInit{
     });
   }
 
-  onReset() {
-    this.searchNom = '';
-    this.filteredRecettes = this.recettes;
-  }
-
   OnSupprimer(id:string){
     this.recetteService.deleteRecette(id).subscribe(
       ()=> {
@@ -45,5 +42,9 @@ export class Dashboard implements OnInit{
         this.filteredRecettes = this.filteredRecettes.filter(r => r.id !== id);
       }
     );
+  }
+  OnDisconnect(){
+    this.authService.logout();
+      this.router.navigate(['admin/login']);
   }
 }

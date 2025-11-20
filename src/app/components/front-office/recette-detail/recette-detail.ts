@@ -27,15 +27,15 @@ export class RecetteDetail implements OnInit {
       message: ['', [Validators.required, Validators.minLength(5)]],
       date:[new Date()]
     });
-    this.recetteId=this.route.snapshot.params["id"]  ;
+    this.recetteId=this.route.snapshot.params["id"] ||''  ;
     this.recetteService.getRecetteById(this.recetteId).subscribe(
       data=>{
-        if (data) {
+        if(data){
           this.recette = data;
-        } else {
-          console.error('Recette non trouvée');
-          this.router.navigate(['/recettes']); 
         }
+          else{
+            console.log('error');
+          }
       } 
     )
   }
@@ -45,7 +45,7 @@ export class RecetteDetail implements OnInit {
       
       this.recetteService.updateRecette(this.recetteId, this.recette).subscribe(
         () => {
-          console.log('Commentaire sauvegardé dans la base');
+          console.log('Commentaire enregistrer');
           this.commentForm.reset();
         }
       );

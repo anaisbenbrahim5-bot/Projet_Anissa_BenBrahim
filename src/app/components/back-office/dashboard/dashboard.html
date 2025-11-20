@@ -6,7 +6,9 @@
   <div class="mb-4">
     <a routerLink="/admin/NewPassword" class="btn btn-warning">Modifier mot de passe</a>
   </div>
-
+  <div class="mb-3">
+    <button class="btn btn-danger btn-sm" (click)="OnDisconnect()">Déconnexion</button>
+  </div>
   <h2 class="mt-4 mb-3">Ajouter une Recette</h2>
 
   <div class="mb-4">
@@ -17,10 +19,9 @@
       type="text"
       class="form-control"
       [(ngModel)]="searchNom"
-      placeholder="Rechercher par nom..."
       (input)="onSearch()"
+      placeholder="search by name"
     />
-    <button class="btn btn-secondary mt-2" (click)="onReset()">Réinitialiser</button>
   </div>
 
   @for (recette of filteredRecettes; track recette.id) {

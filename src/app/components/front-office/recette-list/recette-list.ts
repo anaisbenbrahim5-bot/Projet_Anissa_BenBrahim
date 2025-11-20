@@ -1,12 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { RecetteTunisienne } from '../../../models/recette-tunisienne';
 import { RecetteService } from '../../../services/recette-service';
 import { RecetteCard } from '../recette-card/recette-card';
 
 @Component({
   selector: 'app-recette-list',
-  imports: [ ReactiveFormsModule, RecetteCard],
+  imports: [ ReactiveFormsModule, RecetteCard,RouterLink],
   templateUrl: './recette-list.html',
   styleUrl: './recette-list.css',
 })

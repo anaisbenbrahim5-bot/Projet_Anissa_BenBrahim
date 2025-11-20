@@ -17,4 +17,7 @@ export class AuthService {
       username:"admin",
       password:password});
   }
+  public logout(){
+    localStorage.setItem("state","disconnected");
+  }
 }

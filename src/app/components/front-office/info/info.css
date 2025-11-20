@@ -1,0 +1,77 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+  color: #333;
+}
+
+header {
+  background-image: url('https://images.unsplash.com/photo-1514510156415-1fd99207c9c2');
+  background-size: cover;
+  background-position: center;
+  height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #d35400;
+}
+
+.section p {
+  max-width: 750px;
+  margin: auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  padding: 15px;
+  margin: 0;
+  color: #e67e22;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 40px;
+}

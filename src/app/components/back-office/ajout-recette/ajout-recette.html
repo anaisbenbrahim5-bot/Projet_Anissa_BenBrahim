@@ -3,7 +3,9 @@
 <div class="mb-3">
   <a routerLink="/admin/dashboard" class="btn btn-secondary">Retour</a>
 </div>
-
+<div class="mb-3">
+  <button class="btn btn-danger btn-sm" (click)="OnDisconnect()">Déconnexion</button>
+</div>
 <form [formGroup]="recetteForm" (ngSubmit)="OnSubmit()" class="p-4 shadow rounded bg-light">
   <div class="mb-3">
     <label for="nom" class="form-label">Nom de la recette</label>
