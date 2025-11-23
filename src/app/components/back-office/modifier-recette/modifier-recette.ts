@@ -38,32 +38,28 @@ export class ModifierRecette implements OnInit {
     this.recetteService.getRecetteById(this.recetteId).subscribe(
       (data) => {
         this.recette = data;
-        this.populateForm(data);
-      },
-    );
-  }
-
-  populateForm(recette: RecetteTunisienne): void {
-    this.ingredients.clear();
-    recette.ingredients.forEach((ingredient) => {
+        this.ingredients.clear();
+    this.recette.ingredients.forEach((ingredient) => {
       this.ingredients.push(this.fb.nonNullable.control(ingredient, Validators.required));
     });
     this.comments.clear();
-  recette.comments.forEach((comment) => {
+  this.recette.comments.forEach((comment) => {
     this.comments.push(this.fb.nonNullable.control(comment));
   });
 
     this.recetteForm.patchValue({
-      nom: recette.nom,
-      photo: recette.photo,
-      description: recette.description,
-      tempsPreparation: recette.tempsPreparation,
-      difficulte: recette.difficulte,
-      estTraditionnelle: recette.estTraditionnelle,
-      dateAjout:recette.dateAjout,
-      nbPortions: recette.nbPortions,
-      comments:recette.comments
+      nom: this.recette.nom,
+      photo: this.recette.photo,
+      description: this.recette.description,
+      tempsPreparation: this.recette.tempsPreparation,
+      difficulte:this.recette.difficulte,
+      estTraditionnelle: this.recette.estTraditionnelle,
+      dateAjout:this.recette.dateAjout,
+      nbPortions: this.recette.nbPortions,
+      comments:this.recette.comments
     });
+      },
+    );
   }
 
   get ingredients() {

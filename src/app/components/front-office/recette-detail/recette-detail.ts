@@ -29,7 +29,7 @@ export class RecetteDetail implements OnInit {
     });
     this.recetteId=this.route.snapshot.params["id"] ||''  ;
     this.recetteService.getRecetteById(this.recetteId).subscribe(
-      data=>{
+      (data)=>{
         if(data){
           this.recette = data;
         }

@@ -11,7 +11,7 @@ import { RecetteList } from './components/front-office/recette-list/recette-list
 
 export const routes: Routes = [
   { path: 'recettes',title:'les saveurs de tunisie', component: RecetteList },
-  { path: 'recette/:id', component: RecetteDetail },
+  { path: 'recettes/:id', component: RecetteDetail },
   {path:'info',title:'about us',component:Info},
     {
         path: 'admin',
@@ -23,5 +23,5 @@ export const routes: Routes = [
           {path:"modifie/:id",component:ModifierRecette,canActivate:[authGaurdGuard]}
         ]
     },
-        { path: '', redirectTo: '/admin/login', pathMatch: 'full' }
+        { path: '', redirectTo: '/recettes', pathMatch: 'full' }
 ];

@@ -60,6 +60,7 @@
         <div class="card-body">
           <strong>{{ comment.nom | titlecase }}:</strong>
           <p class="mb-0">{{ comment.message }}</p>
+          <span class="badge bg-secondary ms-2">{{ comment.date | date : 'fullDate' }}</span>
         </div>
       </div>
       } @if (recette.comments.length === 0) {

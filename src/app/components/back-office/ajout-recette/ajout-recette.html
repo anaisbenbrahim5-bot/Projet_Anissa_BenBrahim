@@ -1,8 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <a class="navbar-brand" routerLink="/recettes">Les Saveurs de Tunisie</a>
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item"><a class="nav-link" routerLink="/admin/dashboard">Accueil</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/admin/add">Ajouter recette</a></li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/NewPassword">modifier mot de passe</a>
+    </li>
+  </ul>
+</nav>
 <h1 class="mb-4 text-center">Ajout d'une recette</h1>
-
-<div class="mb-3">
-  <a routerLink="/admin/dashboard" class="btn btn-secondary">Retour</a>
-</div>
 <div class="mb-3">
   <button class="btn btn-danger btn-sm" (click)="OnDisconnect()">Déconnexion</button>
 </div>
