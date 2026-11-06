@@ -1,16 +1,40 @@
 # Projet
 
+Création d'un site web présentant des recettes de cuisine tunisienne.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.2.
+
+## Installation
+
+Clonez le projet puis installez les dépendances :
+
+```bash
+git clone <url-du-repository>
+cd <nom-du-projet>
+npm install
+```
+
+## Lancer l'API JSON
+
+Les recettes sont stockées dans un fichier JSON (`db.json`). Il doit être lancé **avant** l'application, avec [json-server](https://github.com/typicode/json-server) :
+
+```bash
+npx json-server --watch db.json --port 3000
+```
+
+L'API sera disponible sur `http://localhost:3000/`.
 
 ## Development server
 
-To start a local development server, run:
+Dans un second terminal, lancez le serveur de développement :
 
 ```bash
 ng serve
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+> ⚠️ Le fichier JSON doit tourner en même temps que `ng serve`, sinon les recettes ne s'afficheront pas.
 
 ## Code scaffolding
 
